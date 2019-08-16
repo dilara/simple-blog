@@ -1,13 +1,22 @@
-<h2><?php echo $title; ?></h2>
-  
-<?php echo validation_errors(); ?>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="<?php echo site_url('posts'); ?>">Posts</a>
+  </li>
+  <li class="breadcrumb-item active">Create A Post</li>
+</ol>
+
+<h2>Create A Post</h2>
+<hr>
 
 <?php echo form_open('posts/create'); ?>
-    <label for="title">Title</label>
-    <input type="input" name="title" /><br />
+  <div class="form-group">
+    <?php echo form_input(array('name'=>'title', 'id'=> 'title', 'placeholder'=>'Title', 'class'=>'form-control', 'value' => set_value('title'))); ?>
+    <?php echo form_error('title');?>
+  </div>
+  <div class="form-group">
+    <?php echo form_textarea(array('name'=>'body', 'id'=> 'body', 'placeholder'=>'Body', 'rows'=>'3', 'class'=>'form-control', 'value' => set_value('body'))); ?>
+    <?php echo form_error('body');?>
+  </div>
 
-    <label for="body">Body</label>
-    <textarea name="body"></textarea><br />
-
-    <input type="submit" name="submit" value="Create Post" />
-</form>
+  <?php echo form_submit(array('value'=>'Create a Post', 'class'=>'btn btn-primary')); ?>
+<?php echo form_close(); ?>

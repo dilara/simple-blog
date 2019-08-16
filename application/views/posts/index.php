@@ -1,9 +1,22 @@
-<h2><?php echo $title; ?></h2>
-  
-<?php foreach ($posts as $post): ?>
-    <h3><?php echo $post['title']; ?></h3>
-    <div class="main">
-        <?php echo $post['body']; ?>
-    </div>
-    <p><a href="<?php echo site_url('posts/'.$post['id']); ?>">View Post</a></p>
-<?php endforeach; ?>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Posts</li>
+</ol>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($posts as $post): ?>
+    <tr>
+      <td><?php echo $post['title']; ?></td>
+      <td>
+        <?php echo anchor('posts/'.$post['id'], 'Show', array('class' => 'btn btn-primary btn-sm')); ?>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>

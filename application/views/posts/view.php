@@ -1,8 +1,12 @@
-<h2><?php echo $title; ?></h2>
-  
-<h3><?php echo $post['title']; ?></h3>
-<div class="main">
-    <?php echo $post['body']; ?>
-</div>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="<?php echo site_url('posts'); ?>">Posts</a>
+  </li>
+  <li class="breadcrumb-item active">Post</li>
+</ol>
 
-<p><a href="<?php echo site_url('posts/'); ?>">View Posts</a></p>
+<h2><?php echo $post['title']; ?></h2>
+<hr>
+<div class="main">
+  <p><?php echo $post['body']; ?></p>
+</div>
