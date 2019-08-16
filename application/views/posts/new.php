@@ -5,7 +5,7 @@
   <li class="breadcrumb-item active">Create A Post</li>
 </ol>
 
-<h2>Create A Post</h2>
+<h3>Create A Post</h3>
 <hr>
 
 <?php echo form_open('posts/create'); ?>

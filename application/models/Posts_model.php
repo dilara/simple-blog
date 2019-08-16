@@ -5,13 +5,13 @@ class Posts_model extends CI_Model {
     $this->load->database();
   }
 
-  public function get_posts()
+  public function all()
   {
     $query = $this->db->get('posts');
     return $query->result_array();
   }
 
-  public function get_post($id = NULL)
+  public function find($id = NULL)
   {
     if ( !$id ) { show_error('missing parameter'); }
 
@@ -19,16 +19,29 @@ class Posts_model extends CI_Model {
     return $query->row_array();
   }
 
-  public function set_posts()
-  {
-    $this->load->helper('url');
-    $slug = url_title($this->input->post('title'), 'dash', TRUE);
+  public function update($id = NULL) {
+    $data = array(
+      'title' => $this->input->post('title'),
+      'body' => $this->input->post('body')
+    );
 
+    $this->db->where('id', $id);
+    $this->db->update('posts', $data);
+  }
+
+  public function insert()
+  {
     $data = array(
       'title' => $this->input->post('title'),
       'body' => $this->input->post('body')
     );
 
     return $this->db->insert('posts', $data);
+  }
+
+  public function delete($id = NULL)
+  {
+    $this->db->where('id', $id);
+    $this->db->delete('posts');
   }
 }
