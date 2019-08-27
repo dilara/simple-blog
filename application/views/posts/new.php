@@ -20,3 +20,5 @@
 
   <?php echo form_submit(array('value'=>'Create a Post', 'class'=>'btn btn-primary')); ?>
 <?php echo form_close(); ?>
+
+<?php $this->load->view('posts/summernote'); ?>
