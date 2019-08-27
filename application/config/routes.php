@@ -13,3 +13,5 @@ $route['posts/(:num)/update'] = 'posts/update/$1';
 $route['posts/(:num)/delete'] = 'posts/delete/$1';
 $route['posts/(:num)'] = 'posts/show/$1';
 $route['posts'] = 'posts';
+
+$route['blog/(:num)'] = 'blog/post/$1';
